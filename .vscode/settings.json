@@ -24,11 +24,17 @@
         "titleBar.inactiveForeground": "#15202b99"
     },
     "peacock.color": "#3ee544",
+    "editor.formatOnSave": false,
+    "vetur.validation.template": false,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
     "githubIssues.createIssueTriggers": [
         "TODO",
         "BUG",
         "FIXME",
         "ISSUE",
         "HACK"
-      ]
+      ],
+      "eslint.format.enable": true
 }
