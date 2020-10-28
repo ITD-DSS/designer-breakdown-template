@@ -26,7 +26,22 @@
   "dependencies": {},
   "devDependencies": {
     "@sanity/cli": "^2.0.*",
+    "dotenv": "^8.2.0",
+    "dotenv-quokka-plugin": "^1.0.0",
     "lerna": "^3.22.*",
+    "ssh2-sftp-client": "^5.3.1",
+    "url-parse": "^1.4.7",
     "website-scraper": "^4.2.3"
+  },
+  "quokka": {
+    
+    "env": {
+      "params": {
+        "env": "NODE_ENV=test;"
+      }
+    },
+    "plugins": [
+      "dotenv-quokka-plugin"
+   ]
   }
 }
