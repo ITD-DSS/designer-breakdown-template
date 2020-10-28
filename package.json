@@ -37,11 +37,8 @@
     
     "env": {
       "params": {
-        "env": "NODE_ENV=test;"
+        "env": "NODE_ENV=development;"
       }
-    },
-    "plugins": [
-      "dotenv-quokka-plugin"
-   ]
+    }
   }
 }
