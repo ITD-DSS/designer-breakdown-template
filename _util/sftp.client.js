@@ -4,7 +4,7 @@ const Url = require('url-parse');
 const Client = require('ssh2-sftp-client');
 const sftp = new Client();
 
-//  GET WEBSITE URL
+//  GET WEBSITE URL from CLI
 
 const testSite = new Url(`https://www.acgov.org/ece/`)
 // https://acgovt.acgov.org/ece/
@@ -13,9 +13,9 @@ const testSite = new Url(`https://www.acgov.org/ece/`)
 /**
  * Get related fields to URL
  * 
- * DEV server path
+ * DEV server paths - inter & intra
  * 
- * TEST server path
+ * TEST server path - inter & intra
  */
 
 let directory
