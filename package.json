@@ -32,13 +32,5 @@
     "ssh2-sftp-client": "^5.3.1",
     "url-parse": "^1.4.7",
     "website-scraper": "^4.2.3"
-  },
-  "quokka": {
-    
-    "env": {
-      "params": {
-        "env": "NODE_ENV=development;"
-      }
-    }
   }
 }
