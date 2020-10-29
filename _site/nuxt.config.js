@@ -27,6 +27,7 @@ export default {
 
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [
+    '@nuxtjs/sanity',
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/tailwindcss
@@ -38,6 +39,10 @@ export default {
     // https://go.nuxtjs.dev/content
     '@nuxt/content',
   ],
+
+  sanity: {
+    projectId: 'ehhijqba'
+  },
 
   // Content module configuration (https://go.nuxtjs.dev/config-content)
   content: {},
