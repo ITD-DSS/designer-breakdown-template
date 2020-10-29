@@ -4,9 +4,19 @@ const Url = require('url-parse');
 const Client = require('ssh2-sftp-client');
 const sftp = new Client();
 
+//  GET WEBSITE URL
+
 const testSite = new Url(`https://www.acgov.org/ece/`)
 // https://acgovt.acgov.org/ece/
 // https://acgovd.acgov.org/ece/
+
+/**
+ * Get related fields to URL
+ * 
+ * DEV server path
+ * 
+ * TEST server path
+ */
 
 let directory
 
@@ -27,17 +37,36 @@ const test = process.env.TEST_SERVER
 //   directories = [process.env.DEV_INTER, process.env.DEV_INTRA]
 // }
 
+const SFTP_HOST = process.env.NODE_ENV !== 'test' ? dev : test;
+
 const config = {
-  
+  host: sftp_host,
+  port: process.env.PORT,
+  username: process.env.USER_NAME,
+  password: process.env.SFTP_PASS
+}
+
+async function main() {
+  const client = new SftpClient('upload-test');
+  const dst = '/tmp';
+  const src = '/home/tim/upload-test';
+ 
+  try {
+    await client.connect(config);
+    client.on('download', info => {
+console.log(`Listener: Download ${info.source}`);
+    });
+    let rslt = await client.downloadDir(src, dst);
+    return rslt;
+  } finally {
+    client.end();
+  }
 }
 
 
 
  sftp.connect({
-  host: process.env.NODE_ENV !== 'test' ? dev : test,
-  port: process.env.PORT,
-  username: process.env.USER_NAME,
-  password: process.env.SFTP_PASS
+  
 }).then(() => {
   return sftp.list(directory);
 }).then(data => {
@@ -72,3 +101,11 @@ function printContents(array, property, message) {
       console.log(item[property], message)
   })
 }
+
+/**
+ * TODO:
+ * 
+ * COMPARE DEV & TEST DIRECTORIES
+ * 
+ * DIFF DIRECTORIES CHANGE TIMES VIA LAST FILE CHANGE TIME
+ */
